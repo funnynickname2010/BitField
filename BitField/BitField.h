@@ -9,11 +9,10 @@ class BitField
 	int unsigned used_bits;
 
 	unsigned int BitMask(unsigned int task, unsigned int location);
-	unsigned int* ElementIndexInt(unsigned int bit_index);
-	unsigned int* ElementIndexBit(unsigned int bit_index);
 
-	void TurnOn(unsigned int& index);
-	void TurnOff(unsigned int& index);
+	void TurnOn(unsigned int index);
+	void TurnOff(unsigned int index);
+	bool CheckState(unsigned int index);
 
 	BitField operator =(BitField& obj2);
 	bool operator ==(BitField& obj2);
