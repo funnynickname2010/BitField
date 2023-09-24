@@ -66,6 +66,21 @@ void main()
 		} while (ind > field1.reserved_ints || ind < 0);
 
 		std::cout << "Bit with an index " << ind << " equals to " << field1.CheckState(ind) << std::endl;
+
+	case 4:
+
+		std::cout << "\nInput second bitfield: ";
+		InputRow(field2);
+
+		OutputRow(field2 | field1);
+
+	case 5:
+
+		std::cout << "\nInput second bitfield: ";
+		InputRow(field2);
+
+		OutputRow(field2 & field1);
+
 	}
 
 
@@ -74,7 +89,7 @@ void main()
 void Interface()
 {
 	std::cout << "1. Input a bitfitfield as a row";
-	std::cout << "2. Input a single bit of a bitfield\n";
+	std::cout << "2. Change a single bit of a bitfield\n";
 	std::cout << "3. Check state of a bit\n";
 	std::cout << "4. Test | operator\n";
 	std::cout << "5. Test & operator\n";
@@ -90,8 +105,14 @@ void InputRow(BitField& obj)
 		if (input[i] == 1)
 		{
 			obj.TurnOn(i);
+			obj.used_bits += 1;
 		}
-		else if (input[i] != 0)
+		else if (input[i] == 0)
+		{
+			obj.TurnOff(i);
+			obj.used_bits += 1;
+		}
+		else
 		{
 			break;
 		}
