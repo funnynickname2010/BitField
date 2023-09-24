@@ -133,7 +133,7 @@ BitField BitField::operator &(BitField& obj2)
 	return result;
 }
 
-BitField BitField::operator &(BitField& obj2)
+BitField BitField::operator |(BitField& obj2)
 {
 	unsigned int result_bitfield_size;
 	int smaller_bitfield_size;
