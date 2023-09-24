@@ -1,34 +1,48 @@
 #include "BitField.h"
 
-unsigned int BitField::BitMask(unsigned int& task, unsigned int& location)
+unsigned int* BitField::ElementIndexInt(unsigned int bit_index)
 {
-	unsigned int result;
+	
+}
+
+unsigned int* BitField::ElementIndexBit(unsigned int bit_index)
+{
+
+}
+
+void BitField::TurnOn(unsigned int& index)
+{
+	bitarray[index >> 5] = (bitarray[index >> 5] | BitMask(1, (index & 31)));
+}
+
+void BitField::TurnOff(unsigned int& index)
+{
+	bitarray[index >> 5] = (bitarray[index >> 5] & BitMask(2, (index & 31)));
+}
+
+unsigned int BitField::BitMask(unsigned int task, unsigned int location)
+{
+	unsigned int result = 3;
 
 	switch (task)
 	{
 	case 0:
 
 		result = 1 << location;
+		break;
 
 	case 1:
 
 		result = ~(1 << location);
+		break;
 
 	case 2:
 
 		result = 1 << location;
+		break;
 	}
 
 	return result;
-}
-
-unsigned int BitField::BitMask(unsigned int& task)
-{
-	switch (task)
-	{
-	case 4:
-
-	}
 }
 
 BitField::BitField()
