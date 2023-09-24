@@ -2,14 +2,24 @@
 
 unsigned int BitField::BitMask(unsigned int& task, unsigned int& location)
 {
-	unsigned int multiplier_int;
-	multiplier_int = std::floor(location);
+	unsigned int result;
 
 	switch (task)
 	{
+	case 0:
+
+		result = 1 << location;
+
 	case 1:
 
+		result = ~(1 << location);
+
+	case 2:
+
+		result = 1 << location;
 	}
+
+	return result;
 }
 
 unsigned int BitField::BitMask(unsigned int& task)
